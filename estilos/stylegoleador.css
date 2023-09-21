@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+.nombre-goles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribuye los elementos en el contenedor con espacio entre ellos */
+    margin-top: 2%;
+}
+
+.divingreso {
+    padding: 10px;
+    height: 70vh;
+    width: 40%;
+    border: 1px solid rgb(179, 177, 177);
+    border-radius: 10px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.muestra {
+    padding: 10px;
+    height: 70vh;
+    width: 40%;
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 10px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+.ingreso{
+    font-size: 20px;
+    font-family: 'calibri';
+    color: black;
+
+}
+.form-control{
+    width: 100%;
+    height: 3vh;
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+.header-content{
+    display: flex;
+    background-color: rgb(47, 128, 0);
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px; /* Aquí se corrigió el valor */
+    padding-left: 5%;
+    padding-right: 5%;
+    font-weight: bold;
+}
+.logo{
+    font-family: 'calibri';
+    user-select: none;
+}
+
+ul li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+a{
+    text-decoration: none;
+    font-family: 'arial';
+    font-size: 13px;
+}
+a:hover{
+    color: white;
+}
+
+#icon-menu{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    padding: 10px;
+    background: #fafafa;
+    border-radius: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.tabla-goleador {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tabla-goleador th,
+.tabla-goleador td {
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+    font-family: 'calibri';
+}
+
+.tabla-goleador th {
+    background-color: #bababa;
+}
+#edit{
+    color: green;
+}
+#delete{
+    color: red;
+}
+.buttonIngresar{
+    background-color: green;
+    color: white;
+    font-family: 'calibri';
+    width: 120px;
+    height: 27px;
+    border-radius: 5px;
+}
+.buttonIngresar:hover{
+    background-color: rgb(0, 150, 0);
+}
+
