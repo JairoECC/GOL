@@ -137,47 +137,50 @@
 				<h3>Tarjetas Rojas</h3>
 				<tr>
 					<th>#</th>
-                    <th>Jugador</th>
-                    <th>Tarjetas Rojas</th>
-			    </tr>
-				<?php 
-				$posicion =1;
+					<th>Jugador</th>
+					<th>Tarjetas Rojas</th>
+                </tr>
+				<?php
+				$posicion = 1;
+				$totalJugadores = count($jugador); // Contar el número total de jugadores
 				foreach ($jugador as $dato) {
-					if ($posicion <=10){
-					?>
-					<tr>
-						<td><?php echo $posicion; ?></td>
-						<td><?php echo $dato->nombre; ?></td>
-						<td><?php echo $dato->tar_roj; ?></td>
-						<td><a class="btn btn-warning" id="edit" href="../editAndDelete/editRoj.php?nombre=<?php echo $dato->nombre; ?>">Editar</a></td>
-                        <td><a class="btn btn-danger" id="delete" href="../editAndDelete/deleteRoj.php?nombre=<?php echo $dato->nombre; ?>">Eliminar</a></td>
-					</tr>
-					<?php
-					$posicion ++;
-					} else{
-						break;
-					}
-				}?>
-			</table>
+					if ($posicion <= 10) {
+                ?>
+				<tr>
+					<td><?php echo $posicion; ?></td>
+					<td><?php echo $dato->nombre; ?></td>
+					<td><?php echo $dato->tar_roj; ?></td>
+					<td><a class="btn btn-warning" id="edit" href="../editAndDelete/editRoj.php?nombre=<?php echo $dato->nombre; ?>">Editar</a></td>
+					<td><a class="btn btn-danger" id="delete" href="/editAndDelete/deleteRoj.php?nombre=<?php echo $dato->nombre; ?>">Eliminar</a></td>
+				</tr>
+            <?php
+			$posicion++;
+		} else {
+			break;
+        }
+    }
+    ?>
+</table>
+<?php if ($totalJugadores > 10): ?>
+    <!-- Aquí colocas el botón "Ver Más" -->
+    <button id="verMasBtn" class="btn btn-primary">Ver Más</button>
+<?php endif; ?>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const verMasBtn = document.getElementById("verMasBtn");
+        const filasOcultas = document.querySelectorAll(".tabla-goleador tr:nth-child(n+11)");
+
+        verMasBtn.addEventListener("click", function () {
+            filasOcultas.forEach(function (fila) {
+                fila.style.display = "table-row";
+            });
+            verMasBtn.style.display = "none"; // Oculta el botón "Ver Más" después de hacer clic
+        });
+    });
+</script>
+
 		</div>
 	</div>
-	<div id="view-all" style="display: none;">
-		<style>
-			#view-all{
-				margin-left: 75%;
-			}
-			#view-all a{
-				color: green;
-			}
-		</style>
-	    <a href="">Ver mas</a>
-	</div>
-	<script>
-		var totalGoleadores = <?php echo $totalGoleadores; ?>;
-console.log("Total de jugadores: " + totalGoleadores); // Muestra el valor de totalGoleadores en la consola
-if (totalGoleadores >= 10) {
-    console.log("Mostrar 'Ver más'");
-    document.getElementById("view-all").style.display = "block";
-}
 </body>
 </html>
