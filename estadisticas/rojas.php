@@ -161,5 +161,9 @@
 			</table>
 		</div>
 	</div>
+<div class="panel-final">
+	<h1>hola</h1>
+	<input type="button" value="Ver Todos">
+</div>
 </body>
 </html>
