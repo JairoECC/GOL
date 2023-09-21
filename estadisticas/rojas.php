@@ -174,9 +174,9 @@
 	</div>
 	<script>
 		var totalGoleadores = <?php echo $totalGoleadores; ?>;
-		if (totalGoleadores => 10){
-			document.getElementById("view-all").style.display="block";
+		alert("Total de jugadores: " + totalGoleadores); // Muestra el valor de totalGoleadores
+		if (totalGoleadores >= 10) {
+			document.getElementById("view-all").style.display = "block";
 		}
-	</script>
 </body>
 </html>
