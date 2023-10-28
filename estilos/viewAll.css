@@ -1,0 +1,75 @@
+.tabla-goleador th,
+.tabla-goleador td {
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+    font-family: 'calibri';
+}
+.tabla-goleador th {
+    background-color: #bababa;
+}
+.tabla-goleador {
+    border-collapse: collapse;
+    width: 100%;
+}
+.muestra{
+    margin-top: 20px
+}
+.muestra{
+    margin-top: 40px;
+    width: 50%;
+    margin-left: 70px;
+}
+.buscador{
+    margin-top: 20px;
+    margin-left: 70px;
+}
+.buscador label{
+    color: black;
+    font-family: 'calibri';
+    font-size: 20px;
+}
+#ingreText{
+    width: 380px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+#Lupa{
+    background: transparent;
+    border: none;
+}
+.input-container{
+    position: relative;
+}
+.input-container i {
+    position: absolute;
+    top: 52%;
+    transform: translateY(-50%);
+    left: 90%; 
+    cursor: pointer;
+}
+.input-container input {
+    padding-left: 3px; 
+    font-size: 15px;
+}
+@media (max-width: 600px){
+    form{
+        align-items: center;
+    }
+    #ingreText{
+        width: 200px;
+        height: 22px;
+        border: 2px solid black;
+        border-radius: 3px;
+    }
+    .input-container i {
+        position: absolute;
+        margin-top: 2px;
+        transform: translateY(-50%);
+        left: 90%;
+        font-size: 10px; 
+        cursor: pointer;
+    }
+
+}

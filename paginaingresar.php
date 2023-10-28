@@ -14,7 +14,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head
+<head>
     <meta charset="UTF-8">
 	<link rel="stylesheet" href="estilos/stylegoleador.css">
     <title>Estadisticas</title>
@@ -158,18 +158,23 @@
                 }
                 }?>
             </table>
+            <div class="view-all">
+                <style>
+                .view-all{
+                    margin-left: 90%;
+                    margin-top: 5px;
+                }
+			    .view-all a{
+				    color: green;
+			    }
+                .view-all a:hover{
+                    text-decoration: underline;
+                }
+		        </style>
+                <a href="viewAll/gol.php" target="_blank">Ver mas</a>
+            </div>
         </div>
     </div>
-    <div class="view-all">
-		<style>
-			.view-all{
-				margin-left: 75%;
-			}
-			.view-all a{
-				color: green;
-			}
-		</style>
-	    <a href="">Ver mas</a>
-	</div>
+    
 </body>
 </html>

@@ -159,6 +159,22 @@
 					}
 				}
 			?>
+			</table>
+			<div class="view-all">
+                <style>
+                .view-all{
+                    margin-left: 90%;
+                    margin-top: 5px;
+                }
+			    .view-all a{
+				    color: green;
+			    }
+                .view-all a:hover{
+                    text-decoration: underline;
+                }
+		        </style>
+                <a href="">Ver mas</a>
+            </div>
 		</div>
 	</div>
 </body>
