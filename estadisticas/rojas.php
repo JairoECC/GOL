@@ -14,7 +14,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head
+<head>
     <meta charset="UTF-8">
 	<link rel="stylesheet" href="../estilos/stylegoleador.css">
     <title>Estadisticas</title>
@@ -56,7 +56,6 @@
             box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
             margin: 20px auto; /* Cambia este valor para ajustar el margen */
         }
-
         @media (min-width: 1000px) {
             .nombre-goles {
                 flex-direction: row;
@@ -161,9 +160,5 @@
 			</table>
 		</div>
 	</div>
-<div class="panel-final">
-	<h1>hola</h1>
-	<input type="button" value="Ver Todos">
-</div>
 </body>
 </html>
