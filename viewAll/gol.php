@@ -1,15 +1,26 @@
-<?php  
-	session_start();
-	if (!isset($_SESSION['nombre'])) {
-		header('Location: login.php');
-	}elseif(isset($_SESSION['nombre'])){
-		include '../conexion.php';
-		$sentencia = $bd->query("SELECT nombre, goles FROM jugador ORDER BY goles DESC");
-		$jugador = $sentencia->fetchAll(PDO::FETCH_OBJ);
-		//print_r($alumnos);
-	}else{
-		echo "Error en el sistema";
-	}	
+<?php
+session_start();
+if (!isset($_SESSION['nombre'])) {
+    header('Location: login.php');
+} elseif (isset($_SESSION['nombre'])) {
+    include '../conexion.php';
+
+    // Verifica si se ha enviado un nombre para buscar
+    if (isset($_POST['nombre'])) {
+        $nombreBusqueda = $_POST['nombre'];
+        $sql = "SELECT nombre, goles FROM jugador WHERE nombre LIKE :nombre ORDER BY goles DESC";
+        $stmt = $bd->prepare($sql);
+        $stmt->bindParam(':nombre', $nombreBusqueda, PDO::PARAM_STR);
+        $stmt->execute();
+        $jugador = $stmt->fetchAll(PDO::FETCH_OBJ);
+    } else {
+        // Si no se envió un nombre, muestra a todos los jugadores
+        $sentencia = $bd->query("SELECT nombre, goles FROM jugador ORDER BY goles DESC");
+        $jugador = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
+} else {
+    echo "Error en el sistema";
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +68,7 @@ body {
             <?php 
             $posicion = 1;
             foreach ($jugador as $dato) {
-                if ($posicion <= 10) { // Limitar hasta la posición 8
+                if ($posicion <= 100) { // Limitar hasta la posición 100
             ?>
             <tr>
                 <td><?php echo $posicion; ?></td>
@@ -69,7 +80,7 @@ body {
             <?php
                 $posicion++;
             } else {
-                break; // Romper el ciclo si se alcanza la posición 8
+                break; // Romper el ciclo si se alcanza la posición 100
             }
             }
             ?>
