@@ -5,11 +5,9 @@ h1{
     text-align: center;
     font-family: Arial, sans-serif;
     letter-spacing: 0.05em;
-    color: rgb(0, 79, 124);
 }
 p{
     text-align: center;
-    color: black;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .container {
@@ -31,20 +29,14 @@ p{
 .boton{
     width: 50%;
     height: 10vh;
-    background-color: #00224e;
     color: white;
     font-family: arial;
     font-size: 30px;
-}
-.boton:hover{
-    background: #002e91;
-    box-shadow: 0 0 10px #002e91,0 0 40px #002e91, 0 0 80px #002e91;
 }
 
 .bod{
     width: 400px;
     background-color: transparent;
-    border: 2px solid #00224e;
     padding: 30px;
     margin: auto;
     margin-top: 100px;
@@ -57,12 +49,10 @@ p{
     font-size: 22px;
     margin-bottom: 20px;
     text-align: center;
-    color: #00224e;
 }
 .form-control{
     width: 94%;
     background: transparent;
-    border: 2px solid #00224e;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 16px;
@@ -72,7 +62,6 @@ p{
 .form-controlL{
     width: 100%;
     background: transparent;
-    border: 2px solid #00224e;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 16px;
@@ -87,22 +76,20 @@ p{
 }
 
 .bod a{
-    color: #00224e;
     text-decoration: none;
 }
 .bod a:hover{
-    color: #00224e;
     text-decoration: underline;
 }
 
 .botonn{
     width: 100%;
-    background: #00224e;
     border: none;
     border-radius: 10px;
     padding: 12px;
     color: white;
     margin: 16px 0;
     font-size: 16px;
+    font-family: 'calibri';
 } 
 

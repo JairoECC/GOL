@@ -47,19 +47,20 @@ body{
     padding: 5px;
     margin-bottom: 20px;
 }
-.header-content{
+.navegador{
     display: flex;
     background-color: rgb(47, 128, 0);
     align-items: center;
     justify-content: space-between;
-    padding-top: 30px; /* Aquí se corrigió el valor */
-    padding-left: 5%;
-    padding-right: 5%;
     font-weight: bold;
+    height: 65px;
 }
-.logo{
+.navegador h1{
     font-family: 'calibri';
     user-select: none;
+    font-size: 34px;
+    margin-left: 30px;
+    color: white;
 }
 
 ul li{
@@ -70,24 +71,10 @@ a{
     text-decoration: none;
     font-family: 'arial';
     font-size: 13px;
+    margin-right: 5px;
 }
 a:hover{
     color: white;
-}
-
-#icon-menu{
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    right: 20px;
-    top: 16px;
-    padding: 10px;
-    background: #fafafa;
-    border-radius: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
 }
 .tabla-goleador {
     border-collapse: collapse;
@@ -122,7 +109,71 @@ a:hover{
 .buttonIngresar:hover{
     background-color: rgb(0, 150, 0);
 }
+.checkbtn{
+    font-size: 30px;
+    float: right;
+    line-height: 50px;
+    cursor: pointer;
+    display: none;
+}
+.checkbtn i{
+    margin-right: 15px;
+}
+#check{
+    display: none;
+}
+@media (max-width: 800px) {
+    .navegador h1{
+        font-family: 'calibri';
+        user-select: none;
+        font-size: 28px;
+    }
+    ul li{
+        display: inline-block;
+        padding: 0px 10px;
+    }
+    a{
+        text-decoration: none;
+        font-family: 'arial';
+        font-size: 11px;
+    }
+}
+@media (max-width: 630px) {
+    .navegador h1{
+        font-family: 'calibri';
+        user-select: none;
+        font-size: 24px;
+    }
+    .checkbtn{
+        display: block;
+        font-size: 22px;
+        margin-right: 5px;
+    }
+    ul {
+        position: fixed;
+        width: 40%;
+        height: 30vh;
+        background: white;
+        top: 65px;
+        right: 0; /* Alineado a la derecha */
+        border: 2px solid green;
+        border-top: none;
+        transform: translateX(100%); /* Mover completamente hacia la derecha */
+        text-align: center;        
+    }
 
+    nav ul li{
+        display: block;
+        margin: 20px 0;
+        line-height: 20px;
+    }
+    nav ul li a{
+        font-size: 15px;
+        color: black !important;
+    }
 
-
-
+    #check:checked ~ ul{
+        top: 65px;
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "editor.fontFamily": "'Cascadia Code PL', 'Courier New', monospace",
+    "editor.fontSize": 14.5,
+    "oneDarkPro.bold": true,
+    "oneDarkPro.vivid": true,
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "editor.fontLigatures": true
+}

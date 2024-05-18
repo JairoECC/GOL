@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" href="img/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="estilos/style.css">
     <title>Registro</title>
     <style>
@@ -12,6 +13,7 @@
 
         .botonn{
             background: rgb(0, 79, 0);
+            cursor: pointer;
         }
         .form-control{
             border: 2px solid rgb(0, 79, 0);
@@ -27,6 +29,9 @@
         }
         .bod a{
             color: rgb(0, 79, 0);
+        }
+        .form-control:focus{
+            outline: none;
         }
     @media (max-width: 500px) {
         .bod{
