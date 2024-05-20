@@ -23,6 +23,7 @@ body{
     border: 1px solid rgb(179, 177, 177);
     border-radius: 10px;
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto Mono', monospace;
 }
 
 .muestra {
@@ -35,7 +36,6 @@ body{
 }
 .ingreso{
     font-size: 20px;
-    font-family: 'calibri';
     color: black;
 
 }
@@ -46,6 +46,8 @@ body{
     border-radius: 7px;
     padding: 5px;
     margin-bottom: 20px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
 }
 .navegador{
     display: flex;
@@ -83,17 +85,17 @@ a:hover{
 
 .tabla-goleador th,
 .tabla-goleador td {
-    border: 1px solid black;
+    border-bottom: 1px solid #e3e3e3;
     padding: 3px;
     text-align: center;
-    font-family: 'calibri';
+    font-family: 'Roboto Mono', monospace;
 }
 
 .tabla-goleador th {
-    background-color: #bababa;
+    background-color: #ebebeb;
 }
 #edit{
-    color: green;
+    color: #00a4e6;
 }
 #delete{
     color: red;
@@ -101,7 +103,7 @@ a:hover{
 .buttonIngresar{
     background-color: green;
     color: white;
-    font-family: 'calibri';
+    font-family: 'Roboto Mono', monospace;
     width: 120px;
     height: 27px;
     border-radius: 5px;
@@ -122,6 +124,93 @@ a:hover{
 #check{
     display: none;
 }
+.imglogo{
+    width: 320px;
+    height: auto;
+    margin-left: 25px;
+}
+.ingreso-one{
+    display: flex;
+    margin-top: 10px;
+}
+.ingreso-two{
+    display: flex;
+}
+#name-input{
+    margin-left: 30px;
+}
+#stat-input{
+    margin-left: 41px;
+}
+.profile-pic-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #d9f4ff;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#icon-camera{
+    display: none;
+}
+.profile-pic:hover #icon-camera{
+    display: block;
+}
+.profile-pic:hover{
+    background-color: #a7a7a7;
+}
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile-pic input {
+    display: none;
+}
+.profile-pic .fa-camera {
+    position: absolute;
+    color: #fff;
+    font-size: 24px;
+}
+.ingreso-four{
+    display: flex;
+    align-items: center;
+}
+#photo-input{
+    margin-left: 33px;
+}
+.ingreso-three{
+    display: flex;
+}
+#team-input{
+    margin-left: 31px;
+}
+@media (max-width: 1000px) {
+    .imglogo{
+        width: 235px;
+        height: auto;
+        margin-left: 23px;
+    }
+}
+@media (max-width: 850px) {
+    .imglogo{
+        width: 200px;
+        height: auto;
+        margin-left: 20px;
+    }
+}
 @media (max-width: 800px) {
     .navegador h1{
         font-family: 'calibri';
@@ -139,6 +228,11 @@ a:hover{
     }
 }
 @media (max-width: 630px) {
+    .imglogo{
+        width: 180px;
+        height: auto;
+        margin-left: 18px;
+    }
     .navegador h1{
         font-family: 'calibri';
         user-select: none;

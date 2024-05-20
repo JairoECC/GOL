@@ -94,7 +94,9 @@
                 color: #b5b5b5;
             }
         </style>
-		<h1>ESTADISTICAS</h1>
+		<a href="../index.html">
+            <img class="imglogo" src="https://i.ibb.co/xSzXzKf/logo-Gol-1.png" alt="logo-Gol-1" border="0">
+        </a>
 		<input type="checkbox" id="check">
 		<label for="check" class="checkbtn">
 			<i class="fas fa-bars" style="color:white" ></i>
@@ -112,13 +114,13 @@
 			<h3>Ingresar</h3>
 			<form method="POST" action="../ingresar/ingresarama.php">
 				<table class="ingreso">
-					<tr>
+					<tr class="ingreso-one">
 						<td>Nombre: </td>
-						<td><input type="text" class="form-control" name="txtnombre"></td>
+						<td style="margin-left: 165px"><input type="text" class="form-control" name="txtnombre"></td>
 				    </tr>
-					<tr>
+					<tr class="ingreso-two">
 					    <td>Tarjetas Amarillas: </td>
-					    <td><input type="number" class="form-control" name="txtamarillas"></td>
+					    <td style="margin-left: 33px"><input type="number" class="form-control" name="txtamarillas"></td>
 					</tr>
 					<input type="hidden" name="oculto" value="1">
 					<tr>
@@ -131,11 +133,13 @@
 		<div class="muestra">
 			<h3></h3>
 			<table class="tabla-goleador">
-				<h3>Tarjetas Amarillas</h3>
+				<h3 style="font-family: 'Roboto Mono', monospace;">Tarjetas Amarillas</h3>
 				<tr>
-					<th>#</th>
+					<th></th>
                     <th>Jugador</th>
                     <th>Tarjetas Amarillas</th>
+					<th></th>
+					<th></th>
 			    </tr>
 				<?php 
 				$posicion =1;

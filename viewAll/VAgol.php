@@ -52,14 +52,13 @@ button{
     display: none;
 }
 #edit{
-    color: green;
+    color: #00a4e6;
     text-decoration: none;
 }
 #delete{
     color: red;
     text-decoration: none;
 }
-
 </style>
 <body>
     
@@ -75,34 +74,40 @@ button{
     </div>
 
     <!-- Campo donde se nuestran los resultados y toda los jugadores -->
-    <div class="muestra" id="results">
-		<table class="tabla-goleador">
-            <h3>Goleadores</h3>
-            <tr>
-                <th>#</th>
-                <th>Jugador</th>
-                <th>Goles</th>
-            </tr>
-            <?php 
-            $posicion = 1;
-            foreach ($jugador as $dato) {
-                if ($posicion <= 100) { // Limitar hasta la posición 100
-            ?>
-            <tr>
-                <td><?php echo $posicion; ?></td>
-                <td><?php echo $dato->nombre; ?></td>
-                <td><?php echo $dato->goles; ?></td>
-                <td><a class="btn btn-warning" id="edit" target="_blank" href="../editAndDelete/editGol.php?nombre=<?php echo $dato->nombre; ?>">Editar</a></td>
-                <td><a class="btn btn-danger" id="delete" href="../editAndDelete/delete.php?nombre=<?php echo $dato->nombre; ?>">Eliminar</a></td>
-            </tr>
-            <?php
-                $posicion++;
-            } else {
-                break; // Romper el ciclo si se alcanza la posición 100
-            }
-            }
-            ?>
-        </table>
-    </div> 
+    <section class="View-all">
+        <center>
+        <div class="muestra" id="results">
+        <h3>GOLES</h3>
+	    	<table class="tabla-goleador">
+                <tr>
+                    <th></th>
+                    <th>Jugador</th>
+                    <th>Goles</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <?php 
+                $posicion = 1;
+                foreach ($jugador as $dato) {
+                    if ($posicion <= 100) { // Limitar hasta la posición 100
+                ?>
+                <tr>
+                    <td><?php echo $posicion; ?></td>
+                    <td><?php echo $dato->nombre; ?></td>
+                    <td><?php echo $dato->goles; ?></td>
+                    <td><a class="btn btn-warning" id="edit" target="_blank" href="../editAndDelete/editGol.php?nombre=<?php echo $dato->nombre; ?>"><i class="fas fa-edit"></i></a></td>
+                    <td><a class="btn btn-danger" id="delete" href="../editAndDelete/delete.php?nombre=<?php echo $dato->nombre; ?>"><i class="fas fa-trash-alt"></i></a></td>
+                </tr>
+                <?php
+                    $posicion++;
+                } else {
+                    break; // Romper el ciclo si se alcanza la posición 100
+                }
+                }
+                ?>
+            </table>
+        </div> 
+        </center>
+    </section>
 </body>
 </html>

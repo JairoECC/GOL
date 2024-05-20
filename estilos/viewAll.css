@@ -1,24 +1,28 @@
 .tabla-goleador th,
 .tabla-goleador td {
-    border: 1px solid black;
-    padding: 3px;
+    border-bottom: 1px solid #e3e3e3;
+    padding: 10px;
     text-align: center;
-    font-family: 'calibri';
+    font-family: 'Roboto Mono', monospace;
 }
 .tabla-goleador th {
-    background-color: #bababa;
+    background-color: #ebebeb;
 }
 .tabla-goleador {
     border-collapse: collapse;
-    width: 100%;
+    width: 99%;
+    font-size: 18px;
+    margin-top: 10px;
 }
 .muestra{
-    margin-top: 20px
-}
-.muestra{
-    margin-top: 40px;
-    width: 50%;
-    margin-left: 70px;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    display: flexbox;
+    background-color: #f3f3f3;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 2px solid #e3e3e3;
 }
 .buscador{
     background-color: rgb(47, 128, 0);
@@ -30,6 +34,13 @@
     color: black;
     font-family: 'calibri';
     font-size: 20px;
+}
+.View-all h3{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    margin-top: 10px;
 }
 #txtBuscador{
     margin-left: 65px;
@@ -59,6 +70,7 @@
     padding-left: 3px; 
     font-size: 15px;
 }
+
 @media (max-width: 600px){
     /* form{
         align-items: center;
