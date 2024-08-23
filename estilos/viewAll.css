@@ -21,11 +21,11 @@
     display: flexbox;
     background-color: #f3f3f3;
     margin-top: 5px;
-    border-radius: 10px;
+    border-radius: 8px;
     border: 2px solid #e3e3e3;
 }
 .buscador{
-    background-color: rgb(47, 128, 0);
+    background-color: #1d8643;
     height: 70px;
     display: flex;
     align-items: center; /* Centra verticalmente */
@@ -48,6 +48,8 @@
     height: 40px;
     border: 3px solid rgb(0, 197, 26);
     border-radius: 5px;
+    background-color: white;
+    font-family: 'Roboto Mono', monospace;
 }
 #txtBuscador:focus {
     outline: none; /* Quita el borde cuando el input está enfocado */
@@ -70,6 +72,105 @@
     padding-left: 3px; 
     font-size: 15px;
 }
+#td-position{
+    width: 10px;
+}
+#td-photo{
+    width: 80px;
+}
+#td-name{
+    width: 200px;
+}
+#td-team{
+    width: 400px;
+}
+#td-goals{
+    width: 200px;
+}
+#td-delete{
+    width: 65px;
+}
+#td-edit{
+    width: 65px;
+}
+.buscador .user-menu-content{
+    display: flex; 
+    position: absolute;
+    right: 0;
+    background-color: white;
+}
+
+li button i{
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 1000px;
+}
+.tabla-goleador tr #td-edit #edit{
+    color: #00a4e6;
+    text-decoration: none;
+    font-size: 19px;
+}
+.tabla-goleador tr #td-delete #delete{
+    color: red;
+    text-decoration: none;
+    font-size: 19px;
+}
+#editForm table .edit-tr td{
+    white-space: nowrap;
+}
+body.dark-mode{
+    background-color: #171717;
+    color: white;
+}
+body.dark-mode .tabla-goleador th{
+    background-color: #1f1f1f;
+    border-bottom: 2px solid #27272a;
+}
+body.dark-mode .tabla-goleador td{
+    border-bottom: 2px solid #27272a;
+}
+body.dark-mode .muestra{
+    background-color: #202124;
+    border: none;
+    box-shadow: 0 20px 30px rgb(20, 20, 20);
+}
+body.dark-mode .View-all h3{
+    color: white;
+}
+body.dark-mode #txtBuscador{
+    background-color: #4d4d4d;
+    color: white;
+    border: none;
+}
+.dark-mode #txtBuscador::placeholder {
+    color: #888; 
+}
+body.dark-mode .fa-search{
+    color: white;
+}
+@media (max-width: 1300px){
+    .tabla-goleador {
+        font-size: 15px;
+    }
+    #player-perfil{
+        width: 42px;
+        height: 42px;
+    }
+    .View-all h3{
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1000px){
+    .muestra{
+        width: 70%;
+    }
+}
+@media (max-width: 750px){
+    .muestra{
+        width: 85%;
+    }
+}
 
 @media (max-width: 600px){
     /* form{
@@ -90,8 +191,65 @@
         font-size: 10px; 
         cursor: pointer;
     }
-    .muestra{
-        margin-left: 50px;
+    .tabla-goleador tr #td-edit #edit{
+        font-size: 15px;
+    }
+    .tabla-goleador tr #td-delete #delete{
+        font-size: 15px;
     }
 
+}
+
+@media (max-width: 510px){
+    .tabla-goleador {
+        font-size: 12px;
+    }
+    #player-perfil{
+        width: 38px;
+        height: 38px;
+    }
+    #td-position{
+        padding: 0;
+        font-size: 10px;
+    }
+    .View-all h3{
+        font-size: 15px;
+    }
+    .muestra{
+        width: 98%;
+    }
+    .tabla-goleador tr #td-edit #edit{
+        font-size: 14px;
+    }
+    .tabla-goleador tr #td-delete #delete{
+        font-size: 14px;
+    }
+    .tabla-goleador tr .th-edit-delete{
+        padding: 0;
+    }
+    #td-edit, #td-delete{
+        padding: 4px;
+    }
+}
+
+@media (max-width: 360px){
+    .tabla-goleador {
+        font-size: 11px;
+    }
+    #player-perfil{
+        width: 35px;
+        height: 35px;
+    }
+    .View-all h3{
+        font-size: 15px;
+    }
+    .muestra{
+        width: 98%;
+    }
+    .tabla-goleador tr #td-edit #edit{
+        font-size: 12px;
+    }
+    .tabla-goleador tr #td-delete #delete{
+        font-size: 12px;
+    }
 }

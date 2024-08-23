@@ -1,28 +1,28 @@
-<?php 
+<?php
 session_start();
-if (!isset($_POST['nombre_existente'])) {
-    header('Location: ../estadisticas/paginaingresar.php');
+if (!isset($_POST['oculto'])) {
     exit();
 }
 
 include '../conexion.php';
 $nombre = $_POST['txtnombre'];
-$amarilla = $_POST['txtamarillas'];
+$goles = $_POST['txtgoles'];
 $equipo = $_POST['txtequipo'];
 
-$nombreExistente = $_POST['nombre_existente'];
-
-if (empty($nombre) || empty($amarilla) || empty($equipo)) {
-    header('Location: ../estadisticas/amarillas.php');
+if (empty($nombre) || empty($goles) || empty($equipo)) {
+    header('Location: ../estadisticas/paginaingresar.php');
     exit();
 }
+
+// Obtener el usu_id del usuario que ha iniciado sesión
+$usu_id = $_SESSION['usu_id'];
 
 // Manejar la subida de la imagen si se seleccionó una
 if ($_FILES["foto_perfil"]["size"] > 0) {
     $target_dir = "../img/uploads/";
     
     // Generar un nombre único para el archivo
-    $timestamp = time();
+    $timestamp = time(); // Obtener el timestamp actual
     $target_file = $target_dir . $timestamp . '_' . basename($_FILES["foto_perfil"]["name"]);
 
     $uploadOk = 1;
@@ -58,30 +58,31 @@ if ($_FILES["foto_perfil"]["size"] > 0) {
     // Verificar si $uploadOk es 0 por un error
     if ($uploadOk == 0) {
         echo "Lo siento, tu archivo no fue subido.";
+    // Si todo está bien, intenta subir el archivo
     } else {
         if (move_uploaded_file($_FILES["foto_perfil"]["tmp_name"], $target_file)) {
-            // Actualizar los datos en la base de datos con foto
-            $sentencia = $bd->prepare("UPDATE jugador3 SET nombre = ?, equipo = ?, tar_ama = ?, foto = ? WHERE nombre = ?;");
-            $resultado = $sentencia->execute([$nombre, $equipo, $amarilla, $target_file, $nombreExistente]);
+            // Insertar los datos en la base de datos
+            $sentencia = $bd->prepare("INSERT INTO jugador (nombre, equipo, goles, usu_id, foto) VALUES (?, ?, ?, ?, ?);");
+            $resultado = $sentencia->execute([$nombre, $equipo, $goles, $usu_id, $target_file]);
 
             if ($resultado === TRUE) {
-                header('Location: ../estadisticas/amarillas.php');
+                header('Location: ../estadisticas/paginaingresar.php');
             } else {
-                echo "Error al actualizar los datos.";
+                echo "Error al insertar los datos.";
             }
         } else {
             echo "Lo siento, hubo un error al subir tu archivo.";
         }
     }
 } else {
-    // Actualizar los datos en la base de datos sin foto
-    $sentencia = $bd->prepare("UPDATE jugador3 SET nombre = ?, equipo = ?, tar_ama = ? WHERE nombre = ?;");
-    $resultado = $sentencia->execute([$nombre, $equipo, $amarilla, $nombreExistente]);
+    // Insertar los datos en la base de datos sin foto
+    $sentencia = $bd->prepare("INSERT INTO jugador (nombre, equipo, goles, usu_id) VALUES (?, ?, ?, ?);");
+    $resultado = $sentencia->execute([$nombre, $equipo, $goles, $usu_id]);
 
     if ($resultado === TRUE) {
-        header('Location: ../estadisticas/amarillas.php');
+        header('Location: ../estadisticas/paginaingresar.php');
     } else {
-        echo "Error al actualizar los datos.";
+        echo "Error al insertar los datos.";
     }
 }
 ?>

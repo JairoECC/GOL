@@ -8,12 +8,12 @@ if (!isset($_SESSION['nombre'])) {
 
     if (isset($_POST['nombre'])) {
         $nombre = $_POST['nombre'];
-        $query = "SELECT nombre, asistencia FROM jugador2 WHERE usu_id = :usu_id AND nombre LIKE :nombre ORDER BY asistencia DESC";
+        $query = "SELECT foto, nombre, equipo, asistencia FROM jugador2 WHERE usu_id = :usu_id AND nombre LIKE :nombre ORDER BY asistencia DESC";
         $stmt = $bd->prepare($query);
         $stmt->execute(['usu_id' => $usu_id, ':nombre' => "%$nombre%"]);
         $jugador = $stmt->fetchAll(PDO::FETCH_OBJ);
     } else {
-        $query = "SELECT nombre, asistencia FROM jugador2 WHERE usu_id = :usu_id ORDER BY asistencia DESC";
+        $query = "SELECT foto, nombre, equipo, asistencia FROM jugador2 WHERE usu_id = :usu_id ORDER BY asistencia DESC";
         $stmt = $bd->prepare($query);
         $stmt->execute([':usu_id' => $usu_id]);
         $jugador = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -22,14 +22,12 @@ if (!isset($_SESSION['nombre'])) {
     echo "Error en el sistema";
 }
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
 	<link rel="stylesheet" href="../estilos/viewAll.css">
+    <link rel="stylesheet" href="../estilos/modal.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -48,19 +46,6 @@ body {
     padding: 0;
     background-color: white;
 }
-
-button{
-    display: none;
-}
-#edit{
-    color: green;
-    text-decoration: none;
-}
-#delete{
-    color: red;
-    text-decoration: none;
-}
-
 </style>
 <body>
     
@@ -71,8 +56,11 @@ button{
                 <i class="fas fa-search"></i>
                 <input id="txtBuscador" type="text" name="nombre" placeholder="Buscar" id="searchInput" oninput="performSearch(this.value)" autocomplete="off">
             </label>
-            <button type="submit">Buscar</button>
+            <button class="search-button" type="submit">Buscar</button>
         </form>
+        <div class="user-menu-content">
+            <button class="darkmode-button" id="darkModeToggle"><i id="darkModeIcon" class="fa-regular fa-sun"></i></button>
+        </div>
     </div>
 
     <!-- Campo donde se nuestran los resultados y toda los jugadores -->
@@ -84,32 +72,92 @@ button{
                 <tr>
                     <th></th>
                     <th>Jugador</th>
+                    <th></th>
+                    <th>Equipo</th>
                     <th>Asistencias</th>
-                    <th></th>
-                    <th></th>
+                    <th class="th-edit-delete"></th>
+                    <th class="th-edit-delete"></th>
 	    		</tr>
                 <?php 
                 $posicion =1;
                 foreach ($jugador as $dato) {
 	    			if ($posicion <= 100){
-	    			?>
-	    			<tr>
-	    				<td><?php echo $posicion; ?></td>
-	    				<td><?php echo $dato->nombre; ?></td>
-	    				<td><?php echo $dato->asistencia; ?></td>
-	    				<td><a class="btn btn-warning" id="edit" target="_blank" href="../editAndDelete/editAsis.php?nombre=<?php echo $dato->nombre; ?>">Editar</a></td>
-                        <td><a class="btn btn-danger" id="delete" href="../editAndDelete/deleteAsis.php?nombre=<?php echo $dato->nombre; ?>">Eliminar</a></td>
-	    			</tr>
-	    			<?php
+	    	    ?>
+	    		<tr>
+                    <td id="td-position"><?php echo $posicion; ?></td>
+                    <td id="td-photo">
+                        <?php if (!empty($dato->foto)): ?>
+                            <img id="player-perfil" style="border-radius: 50%" src="<?php echo $dato->foto; ?>" alt="" width="45" height="45">
+                        <?php else: ?>
+                            <img id="player-perfil" style="border-radius: 50%" src="../img/user-predeterminado.png" alt="" width="45" height="45">
+                        <?php endif; ?>
+                    </td>
+                    <td id="td-name"><?php echo $dato->nombre; ?></td>
+                    <td id="td-team"><?php echo $dato->equipo; ?></td>
+                    <td id="td-goals"><?php echo $dato->asistencia; ?></td>
+                    <td id="td-edit">
+                        <button class="btn btn-warning" id="edit" onclick="openModal('<?php echo $dato->nombre; ?>', '<?php echo $dato->asistencia; ?>', '<?php echo $dato->equipo; ?>', '<?php echo $dato->foto; ?>')">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </td>
+                    <td id="td-delete"><a class="btn btn-danger" id="delete" href="../editAndDelete/deleteAsis.php?nombre=<?php echo $dato->nombre; ?>"><i class="fas fa-trash-alt"></i></a></td>
+                </tr>
+	    		<?php
                     $posicion++;
                 } else {
-	    			break;
-	    		}
-            }
-            ?>
+                    break; // Romper el ciclo si se alcanza la posición 100
+                }
+                }
+                ?>
             </table>
         </div> 
         </center>
     </section>
+<!-- Contenedor Modal -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close modal-close">&times;</span>
+        <h3>Editar Jugador</h3>
+        <center>
+        <form id="editForm" method="POST" action="../editAndDelete/editProsAsi.php" enctype="multipart/form-data">
+            <input type="hidden" name="nombre_existente" id="editNombreExistente">
+            <table>
+                <tr class="edit-tr">
+                    <td>Nombre: </td>
+                    <td class="td-name-asis"><input type="text" class="form-control" name="txtnombre" id="editNombre"></td>
+                </tr>
+                <tr class="edit-tr">
+                    <td>Asistencias: </td>
+                    <td class="td-asis"><input type="number" class="form-control" name="txtasistencia" id="editGoles"></td>
+                </tr>
+                <tr class="edit-tr">
+                    <td>Equipo: </td>
+                    <td class="td-team-asis"><input type="text" class="form-control" name="txtequipo" id="editEquipo"></td>
+                </tr>
+                <tr class="edit-tr edit-tr-gol">
+                    <td>Perfil: </td>
+                    <td class="edit-photo-asis" id="edit-photo-input"  >
+                        <div class="edit-profile-pic-wrapper">
+                            <label for="editFotoPerfil" class="edit-profile-pic">
+                                <i id="edit-icon-camera" class="fa fa-camera"></i>
+                                <img src="" alt="" id="editProfileDisplay">
+                                <input type="file" class="form-control" name="foto_perfil" id="editFotoPerfil" onchange="displayEditImage(this)">
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="td-edit-buttons">
+                        <button id="editBtnCancelar" type="button" class="modal-close">CANCELAR</button>
+                        <button id="editBtnGuardar" type="submit">GUARDAR</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        </center>
+    </div>
+</div>
+<script src="../script/modal.js"></script>
+<script src="../script/darkmode.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -9,13 +10,18 @@ body{
     padding: 0;
     background-color: white;
 }
+ul .closer{
+    display: none;
+}
 .nombre-goles {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between; /* Distribuye los elementos en el contenedor con espacio entre ellos */
     margin-top: 2%;
 }
-
+.h3-divingreso{
+    color: black;
+}
 .divingreso {
     padding: 10px;
     height: 70vh;
@@ -24,6 +30,8 @@ body{
     border-radius: 10px;
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
     font-family: 'Roboto Mono', monospace;
+    color: black;
+    background-color: white;
 }
 
 .muestra {
@@ -33,38 +41,32 @@ body{
     border: 1px solid rgb(189, 189, 189);
     border-radius: 10px;
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    color: black;
 }
 .ingreso{
     font-size: 20px;
     color: black;
-
 }
 .form-control{
     width: 100%;
-    height: 3vh;
-    border: 2px solid black;
+    height: 26px !important;
+    border: 1.5px solid black;
     border-radius: 7px;
     padding: 5px;
     margin-bottom: 20px;
     font-family: 'Roboto Mono', monospace;
     font-size: 15px;
+    background-color: white;
 }
 .navegador{
     display: flex;
-    background-color: rgb(47, 128, 0);
+    background-color: #1d8643;
     align-items: center;
     justify-content: space-between;
     font-weight: bold;
     height: 65px;
 }
-.navegador h1{
-    font-family: 'calibri';
-    user-select: none;
-    font-size: 34px;
-    margin-left: 30px;
-    color: white;
-}
-
 ul li{
     display: inline-block;
     padding: 0px 20px;
@@ -101,15 +103,19 @@ a:hover{
     color: red;
 }
 .buttonIngresar{
-    background-color: green;
-    color: white;
+    background-color: #1d8643;
+    color: #fff;
     font-family: 'Roboto Mono', monospace;
-    width: 120px;
-    height: 27px;
+    width: 140px;
+    height: 30px;
     border-radius: 5px;
+    border: none; 
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 .buttonIngresar:hover{
-    background-color: rgb(0, 150, 0);
+    background-color: #1c7b3f;
 }
 .checkbtn{
     font-size: 30px;
@@ -142,6 +148,48 @@ a:hover{
 #stat-input{
     margin-left: 41px;
 }
+#photo-input{
+    margin-left: 30px;
+}
+#team-input{
+    margin-left: 30px;
+}
+#input-name-asis{
+    margin-left: 65px
+}
+#input-asis{
+    margin-left: 10px;
+}
+#input-team-asis{
+    margin-left: 65px;
+}
+#input-photo-asis{
+    margin-left: 65px;
+}
+#input-amarilla{
+    margin-left: 10px;
+}
+#input-name-ama{
+    margin-left: 75px;
+}
+#input-team-ama{
+    margin-left: 75px;
+}
+#input-photo-ama{
+    margin-left: 75px;
+}
+#input-name-roj{
+    margin-left: 31px;
+}
+#input-roja{
+    margin-left: 10px;
+}
+#input-team-roj{
+    margin-left: 31px;
+}
+#input-photo-roj{
+    margin-left: 31px;
+}
 .profile-pic-wrapper {
     display: flex;
     justify-content: center;
@@ -159,6 +207,7 @@ a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 0;
     
 }
 #icon-camera{
@@ -188,20 +237,231 @@ a:hover{
     display: flex;
     align-items: center;
 }
-#photo-input{
-    margin-left: 33px;
-}
 .ingreso-three{
     display: flex;
 }
-#team-input{
-    margin-left: 31px;
+#td-position{
+    width: 20px;
 }
+#td-photo{
+    width: 80px;
+}
+#td-name{
+    width: 135px;
+}
+#td-team{
+    width: 200px;
+}
+#td-stad{
+    width: 120px;
+}
+#td-delete{
+    width: 50px;
+}
+#td-edit{
+    width: 50px;
+}
+.fa-trash-alt{
+    font-size: 18px;
+}
+.fa-edit{
+    font-size: 18px;
+}
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.user-menu-content {
+    display: block; /* Cambiado de none a block */
+    opacity: 1;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 150px;
+    margin-right: 0px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    visibility: hidden;
+}
+
+.user-menu-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.user-menu-content a:hover {
+    background-color: #ddd;
+}
+
+.user-menu:hover .user-menu-content {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 1s; /* Retraso de 1 segundo */
+}
+
+.user-menu .user-name {
+    cursor: pointer;
+    color: white;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+.user-menu {
+    margin-right: 30px;
+}
+
+.user-menu .fas {
+    color: white;
+}
+
+li .user-name {
+    font-size: 22px;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.user-menu-content button {
+    padding: 13px 17px;
+    border: none;
+    margin-left: 34%;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.user-menu-content button:hover {
+    background-color: #cecece;
+}
+
+.user-menu-content button i {
+    font-size: 18px;
+}
+.fa-chevron-down{
+    cursor: pointer;
+    margin-left: -5px;
+}
+form .ingreso .ingreso-two td, .edit-tr td{
+    white-space: nowrap;
+}
+.muestra .view-all{
+    text-align: end;
+}
+.view-all a{
+    color: #fff;
+    font-size: 14px;
+}
+.view-all button{
+    margin-top: 8px;
+    width: 150px;
+    height: 30px;
+    color: #fff;
+    background-color: #1d8643;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.view-all button i{
+    margin-right: 5px;
+}
+.view-all button:hover{
+    background-color: #1c7b3f;
+}
+body.dark-mode{
+    background-color: #171717;
+    color: white;
+}
+body.dark-mode #darkModeIcon {
+    color: white;
+}
+body.dark-mode .user-menu-content {
+    background-color: #212121;
+}
+body.dark-mode .user-menu-content a{
+    color: white;
+}
+body.dark-mode .user-menu-content a:hover{
+    background-color: #303030;
+}
+body.dark-mode .user-menu-content button{
+    background-color: #212121;
+}
+body.dark-mode .user-menu-content button:hover{
+    background-color: #303030;
+}
+body.dark-mode .navegador{
+    background-color: #1d8643;
+}
+body.dark-mode .ingreso, .divingreso{
+    color: white;
+}
+body.dark-mode .divingreso{
+    background-color: #202124;
+    border: none;
+}
+body.dark-mode .form-control{
+    background-color: #3f3f3f;
+    color: white;
+    border: 1px solid #212121;
+    outline: none;
+}
+body.dark-mode .muestra{
+    background-color: #202124;
+    color: white;
+    border: none;
+}
+body.dark-mode .tabla-goleador th{
+    background-color: #1f1f1f;
+    border-bottom: 1px solid #27272a;
+}
+body.dark-mode .tabla-goleador td{
+    border-bottom: 1px solid #27272a;
+}
+body.dark-mode .h3-divingreso{
+    color: white;
+}
+@media (max-width: 1200px) {
+    .tabla-goleador{
+        font-size: 13px;
+    }
+    .fa-edit, .fa-trash-alt{
+        font-size: 13px;
+    }
+    #delete{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ingreso{
+        font-size: 17px;
+    }
+    .h3-divingreso, .h3-muestra{
+        font-size: 17px;
+    }
+}    
 @media (max-width: 1000px) {
     .imglogo{
         width: 235px;
         height: auto;
         margin-left: 23px;
+    }
+    .tabla-goleador{
+        font-size: 15px;
+    }
+    .fa-edit, .fa-trash-alt{
+        font-size: 15px;
+    }
+    .ingreso{
+        font-size: 20px;
+    }
+    .h3-divingreso, .h3-muestra{
+        font-size: 20px;
     }
 }
 @media (max-width: 850px) {
@@ -227,7 +487,72 @@ a:hover{
         font-size: 11px;
     }
 }
-@media (max-width: 630px) {
+@media (max-width: 633px) {
+    .user-menu span{
+        display: none;
+    }
+    .user-menu{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+
+    }
+    .user-menu .fa-chevron-down{
+        display: none;
+    }
+    .user-menu-content {
+        background-color: white;
+        visibility: visible;
+        align-items: center;
+        box-shadow: none;
+        width: 100%;
+        position: relative;
+        /* border: 1px solid #00a4e6; */
+    }
+    .user-menu-content #darkModeToggle {
+        border-bottom: 1px solid #a6a7b3;
+        border-radius: 0;
+        height: 32px;
+        width: 95%;
+        margin-top: 18px;
+        margin-left: 7px;
+        text-align: initial;
+        padding: 0px 10px;
+
+
+    }
+    .user-menu-content a{
+        border-bottom: 1px solid #a6a7b3;
+        text-align:  initial;
+        margin-left: 7px;
+        padding: 2px 10px;
+        width: 95%;
+    }
+    ul .closer{
+        display: block;
+        font-size: 30px;
+        color: black;
+        border: 1px solid #3a3a3a;
+        width: 35px;
+        border-radius: 50%;
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+    ul .cerrarsesion{
+        display: block;
+        color: black;
+    }
+    ul .darkmode-li{
+        display: block;
+    }
+    #darkModeToggle{
+        border: none;
+        font-size: 19px;
+        color: #1a1a1a;
+        background-color: transparent;
+    }
     .imglogo{
         width: 180px;
         height: auto;
@@ -241,33 +566,120 @@ a:hover{
     .checkbtn{
         display: block;
         font-size: 22px;
-        margin-right: 5px;
+        right: -200px;
     }
-    ul {
+    ul{
         position: fixed;
-        width: 40%;
-        height: 30vh;
+        width: 60%;
+        height: 100%;
         background: white;
-        top: 65px;
+        top: 0;
         right: 0; /* Alineado a la derecha */
-        border: 2px solid green;
         border-top: none;
         transform: translateX(100%); /* Mover completamente hacia la derecha */
-        text-align: center;        
+        text-align: center;   
+        transition: all .5s;
+        z-index: 1; 
+        border-left: 1px solid #a6a7b3;
     }
 
     nav ul li{
         display: block;
-        margin: 20px 0;
-        line-height: 20px;
+        width: 90%;
+        border-bottom: 1px solid #a6a7b3 ;
+        margin-top: 30px !important;
+        margin: auto;
+        text-align: initial;
     }
     nav ul li a{
-        font-size: 15px;
+        font-size: 14px;
         color: black !important;
+        text-transform: uppercase;
+        font-weight: lighter;
     }
 
-    #check:checked ~ ul{
-        top: 65px;
+    #check:checked ~ ul {
+        top: 0;
         transform: translateX(0);
+    }
+    body.dark-mode ul {
+        background: #171717;
+    }
+    body.dark-mode nav ul li a{
+        color: white !important;
+    }
+    body.dark-mode ul .closer{
+        color: #fff;
+    }
+    body.dark-mode .user-menu-content{
+        background-color: #171717 !important;
+    }
+}
+@media (max-width: 480px){
+    ul{
+        position: fixed;
+        width: 75%;
+        height: 100%;
+        background: white;
+        top: 0;
+        right: 0; /* Alineado a la derecha */
+        border-top: none;
+        transform: translateX(100%); /* Mover completamente hacia la derecha */
+        text-align: center;   
+        transition: all .5s;
+        z-index: 1; 
+        border-left: 1px solid #a6a7b3;
+    }
+    .tabla-goleador{
+        font-size: 13px;
+    }
+    .fa-edit, .fa-trash-alt{
+        font-size: 13px;
+    }
+    #delete{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ingreso{
+        font-size: 17px;
+    }
+    .h3-divingreso, .h3-muestra{
+        font-size: 17px;
+    }
+    #td-photo img{
+        width: 40px;
+        height: 40px;
+    }
+    .profile-pic {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;   
+    }
+    #input-name-asis, #input-team-asis, #input-photo-asis{
+        margin-left: 57px
+    }
+    #stat-input{
+        margin-left: 39px;
+    }
+    #input-name-ama, #input-team-ama, #input-photo-ama{
+        margin-left: 66px;
+    }
+    #input-name-roj, #input-team-roj, #input-photo-roj{
+        margin-left: 29px;
+    }
+    .buttonIngresar{
+        width: 120px;
+        height: 25px;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    .view-all a{
+        font-size: 12px;
+    }
+    .view-all button{
+        width: 130px;
+        height: 25px;
+        font-size: 14px;
     }
 }

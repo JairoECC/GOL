@@ -1,0 +1,215 @@
+#editModal{
+    font-family: 'Roboto Mono', monospace;
+}
+#edit{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 20px;
+}
+.search-button, .darkmode-button{
+    display: none;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+.modal h3{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.edit-tr{
+    display: flex;
+}
+.edit-photo-gol{
+    margin-left: 20px; display: flex; align-items: center;
+}
+.td-name-gol{
+    margin-left: 20px;
+}
+.td-gol{
+    margin-left: 29px;
+}
+.td-team-gol{
+    margin-left: 20px;
+}
+.edit-tr-gol{
+    display: flex;
+    align-items: center;
+}
+.td-edit-buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.td-name-asis{
+    margin-left: 50px;
+}
+.td-asis{
+    margin-left: 8px;
+}
+.td-team-asis{
+    margin-left: 50px;
+}
+.edit-photo-asis{
+    margin-left: 50px;
+}
+.td-name-ama{
+    margin-left: 60px;
+}
+.td-ama{
+    margin-left: 8px;
+}
+.td-team-ama{
+    margin-left: 60px;
+}
+.edit-photo-ama{
+    margin-left: 60px;
+}
+.td-name-roj{
+    margin-left: 25px;
+}
+.td-roja{
+    margin-left: 8px;
+}
+.td-team-roj{
+    margin-left: 25px;
+}
+.edit-photo-roj{
+    margin-left: 25px;
+}
+#editBtnCancelar{
+    margin-right: 10px;
+    background-color: #b52727;
+    color: white;
+    border: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+}
+#editBtnCancelar:hover{
+    background-color: #a92424;
+}
+#editBtnGuardar{
+    background-color: #1d8643;
+    color: white;
+    border: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+}
+#editBtnGuardar:hover{
+    background-color: #1a763c;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 10px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.edit-profile-pic-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.edit-profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #d9f4ff;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#edit-icon-camera{
+    display: none;
+}
+.edit-profile-pic:hover #edit-icon-camera{
+    display: block;
+}
+.edit-profile-pic:hover{
+    background-color: #a7a7a7;
+}
+.edit-profile-pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.edit-profile-pic input {
+    display: none;
+}
+.edit-profile-pic .fa-camera {
+    position: absolute;
+    color: #fff;
+    font-size: 24px;
+}
+.form-control{
+    width: 100%;
+    height: 3vh;
+    border: 1.5px solid black;
+    border-radius: 7px;
+    padding: 5px;
+    margin-bottom: 20px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+    background-color: white;
+}
+body.dark-mode .modal-content{
+    background-color: #202124;
+    border: 1px solid #202124;
+}
+body.dark-mode .close:hover {
+    color: white;
+}
+body.dark-mode .form-control{
+    background-color: #3f3f3f;
+    color: white;
+    border: 1px solid #212121;
+    outline: none;
+}
+@media (max-width: 560px){
+    .modal-content {
+        margin: 5% auto;
+        width: 85%;
+        border-radius: 8px;
+    }
+    .edit-profile-pic {
+        width: 65px;
+        height: 65px;
+    }
+    #editBtnCancelar, #editBtnGuardar{
+        width: 80px;
+        height: 22px;
+        border-radius: 5px;
+        font-size: 10px;
+    }
+}

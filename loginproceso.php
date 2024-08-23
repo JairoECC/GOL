@@ -9,10 +9,10 @@
     $datos = $sentencia->fetch(PDO::FETCH_OBJ);
 
     if ($datos === FALSE) {
-        header('Location: login.php');
+        header('Location: index.php');
     } elseif($sentencia->rowCount() == 1){
         $_SESSION['nombre'] = $datos->nombre_usu;
         $_SESSION['usu_id'] = $datos->usu_id; // Guardar el usu_id en la sesión
-        header('Location: paginaingresar.php');
+        header('Location: estadisticas/paginaingresar.php');
     }
 ?>
