@@ -17,6 +17,9 @@ Este sistema ha sido desarrollado utilizando las siguientes tecnologías:
 - **HTML/CSS**: Para la estructura y el diseño visual de la página.
 - **JavaScript**: Para la interactividad y algunas funcionalidades dinámicas en el frontend.
 
+## Próxima actualización
+El sistema será actualizado próximamente para utilizar el framework **Laravel**, lo que mejorará aún más su rendimiento y estructura de código.
+
 ## Cómo probar el sistema
 Puedes probar el sistema ingresando al siguiente enlace:
 
